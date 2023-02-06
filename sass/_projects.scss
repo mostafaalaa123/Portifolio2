@@ -1,0 +1,112 @@
+.projects{
+    padding-bottom: 2rem;
+    &-bio-image{
+        width: 100%;
+        height: 30vh;
+        background: linear-gradient(
+            to right , rgba($primary-color,0.9),
+            rgba($primary-color, 0.3) 
+        ), url(../img/model-1.jpg) center top;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding-bottom: 1rem;
+
+        .text-secondary{
+            padding-bottom: 1rem;
+            font-size: 2rem;
+
+        }
+
+        
+
+    }
+    &-items{
+        width: 60vw;
+        margin: 2rem auto 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+
+        .projects-item{
+            position: relative;
+            border-bottom: 5px solid $second-color ;
+            overflow: hidden;
+            cursor: pointer;
+            
+            
+            img{
+                width: 100%;
+            }
+            .projects-btns{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                z-index: 1;
+                justify-content: space-evenly;
+                align-items: center;
+
+                .projects-btn{
+                    opacity: 0;
+                    color: set-text-color($second-color);
+                    @include transition-ease;
+
+                    &:hover{
+                        color: set-text-color(set-text-color($second-color));
+
+                    }
+
+                }
+
+                 
+
+            }
+
+            &::after{
+                content: "";
+                position:absolute;
+                top: 0;
+                left: 0;
+                transform: translateX(100%);
+                height: 100%;
+                width: 100%;
+                background: $second-color;
+                opacity: 0;
+                @include transition-ease();
+
+            }
+            &:hover{
+                &::after{
+                    transform: translateX(0);
+                    opacity: 0.8;
+                }
+                .projects-btn{
+                    opacity: 1;
+                    font-weight: 1rem;
+                }
+
+
+            }
+
+        }
+
+
+
+
+        
+    }
+    .social-icon{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+.opp-footer{
+    transform: rotate(90deg) translate(-6rem , -8rem);
+    
+}
